@@ -7,12 +7,13 @@ import Seo from "../components/seo"
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
-  const posts = data.allMarkdownRemark.nodes
-
+  let posts = data.allMarkdownRemark.nodes
+  posts = posts.filter(post => !post.fields.slug.includes('draft'))
+  console.log(posts);
   if (posts.length === 0) {
     return (
       <Layout location={location} title={siteTitle}>
-        <Bio />
+        {/* <Bio /> */}
         <p>
           No blog posts found. Add markdown posts to "content/blog" (or the
           directory you specified for the "gatsby-source-filesystem" plugin in
@@ -24,7 +25,7 @@ const BlogIndex = ({ data, location }) => {
 
   return (
     <Layout location={location} title={siteTitle}>
-      <Bio />
+      {/* <Bio /> */}
       <ol style={{ listStyle: `none` }}>
         {posts.map(post => {
           const title = post.frontmatter.title || post.fields.slug
@@ -37,12 +38,15 @@ const BlogIndex = ({ data, location }) => {
                 itemType="http://schema.org/Article"
               >
                 <header>
+                    <small>
+                      {post.frontmatter.date}
+                    </small>
+                    <span className="post-tag">{post.frontmatter.tags[0]}</span>
                   <h2>
                     <Link to={post.fields.slug} itemProp="url">
                       <span itemProp="headline">{title}</span>
                     </Link>
                   </h2>
-                  <small>{post.frontmatter.date}</small>
                 </header>
                 <section>
                   <p
@@ -84,6 +88,7 @@ export const pageQuery = graphql`
           slug
         }
         frontmatter {
+          tags
           date(formatString: "MMMM DD, YYYY")
           title
           description

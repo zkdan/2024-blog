@@ -49,7 +49,7 @@ const BlogPostTemplate = ({
             )}
           </li>
           <li>
-            {next && (
+            {next.frontmatter.draft ===false && (
               <Link to={next.fields.slug} rel="next">
                 {next.frontmatter.title} →
               </Link>
@@ -107,6 +107,7 @@ export const pageQuery = graphql`
       }
       frontmatter {
         title
+        draft
       }
     }
   }
