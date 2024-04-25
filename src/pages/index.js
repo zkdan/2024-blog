@@ -9,7 +9,6 @@ const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
   let posts = data.allMarkdownRemark.nodes
   posts = posts.filter(post => !post.fields.slug.includes('draft'))
-  console.log(posts);
   if (posts.length === 0) {
     return (
       <Layout location={location} title={siteTitle}>
