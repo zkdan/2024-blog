@@ -25,6 +25,11 @@
     "react": "^18.1.0",
     "react-dom": "^18.1.0"
   },
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "webpack": "^5.59.0"
+  },
   "devDependencies": {
     "prettier": "^2.8.8"
   },
@@ -45,5 +50,11 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+  },
+  "overrides": {
+    "react-server-dom-webpack@0.0.0-experimental-c8b778b7f-20220825": {
+      "react": "^18.2.0"
+    }
   }
+  
 }

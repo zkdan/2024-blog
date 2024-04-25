@@ -49,7 +49,7 @@ const BlogPostTemplate = ({
             )}
           </li>
           <li>
-            {next.frontmatter.draft ===false && (
+            {next && next.frontmatter.draft ===false && (
               <Link to={next.fields.slug} rel="next">
                 {next.frontmatter.title} →
               </Link>
