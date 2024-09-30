@@ -45,7 +45,7 @@ const Bio = () => {
       {author?.name && (
         <p>
           Written by <strong>{author.name}</strong>. 
-          <a href={`https://linkedin.com/in/${social?.linkedin || ``}`}>
+          <a href={`https://linkedin.com/in/zkdan`}>
             She's looking for her next role
           </a>
         </p>
