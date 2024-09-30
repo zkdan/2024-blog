@@ -15,10 +15,10 @@ module.exports = {
       summary: `javascript developer | educator`,
     },
     description: `A blog by Zoe Daniels`,
-    siteUrl: `https://zoecodes.com/`,
+    siteUrl: `https://www.zoecodes.com` || `https://zoecodes.com`,
     social: {
       github:`https://github.com/zkdan`,
-      linkedin:`zoe-daniels-26830749/`
+      linkedin:`zkdan`
     },
   },
   plugins: [
